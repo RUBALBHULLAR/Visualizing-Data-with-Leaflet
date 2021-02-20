@@ -50,3 +50,6 @@ var myMap = L.map("map", {
     zoom: 2,
     layers: [satelliteMap, earthquakes]
 });
+
+// Create a Layer Control + Pass in baseMaps and overlayMaps + Add the Layer Control to the Map
+L.control.layers(baseMaps, overlayMaps).addTo(myMap);
