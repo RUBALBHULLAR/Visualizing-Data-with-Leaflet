@@ -58,12 +58,24 @@ L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 d3.json(earthquakesURL, function(earthquakeData){
 {
 // Function to Determine Size of Marker Based on the Magnitude of the Earthquake
-function markerSize(magnitude) {
+    function markerSize(magnitude) {
     if (magnitude === 0) {
       return 1;
     }
     return magnitude * 3;
-}
+    }
+    // Function to Determine Style of Marker Based on the Magnitude of the Earthquake
+    function styleInfo(feature) {
+        return {
+          opacity: 1,
+          fillOpacity: 1,
+          fillColor: chooseColor(feature.properties.mag),
+          color: "#000000",
+          radius: markerSize(feature.properties.mag),
+          stroke: true,
+          weight: 0.5
+        };
+    }
 
-
+} 
 });
