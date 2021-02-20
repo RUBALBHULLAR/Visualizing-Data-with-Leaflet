@@ -93,5 +93,22 @@ function chooseColor(magnitude) {
         return "#DAF7A6";
     }
   }
+  // Create a GeoJSON Layer Containing the Features Array on the earthquakeData Object
+  L.geoJSON(earthquakeData, {
+    pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng);
+    },
+    style: styleInfo,
+    // Function to Run Once For Each feature in the features Array
+    // Give Each feature a Popup Describing the Place & Time of the Earthquake
+    onEachFeature: function(feature, layer) {
+        layer.bindPopup("<h4>Location: " + feature.properties.place + 
+        "</h4><hr><p>Date & Time: " + new Date(feature.properties.time) + 
+        "</p><hr><p>Magnitude: " + feature.properties.mag + "</p>");
+    }
+// Add earthquakeData to earthquakes LayerGroups 
+}).addTo(earthquakes);
+// Add earthquakes Layer to the Map
+earthquakes.addTo(myMap);
 } 
 });
