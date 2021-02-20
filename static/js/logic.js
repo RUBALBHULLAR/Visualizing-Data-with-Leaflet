@@ -43,3 +43,10 @@ var overlayMaps = {
     "Earthquakes": earthquakes,
     "Fault Lines": tectonicPlates
 };
+
+// Create Map, Passing In satelliteMap & earthquakes as Default Layers to Display on Load
+var myMap = L.map("map", {
+    center: [37.09, -95.71],
+    zoom: 2,
+    layers: [satelliteMap, earthquakes]
+});
