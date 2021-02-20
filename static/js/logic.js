@@ -37,3 +37,9 @@ var baseMaps = {
     "Grayscale": grayscaleMap,
     "Outdoors": outdoorsMap
 };
+
+// Create Overlay Object to Hold Overlay Layers
+var overlayMaps = {
+    "Earthquakes": earthquakes,
+    "Fault Lines": tectonicPlates
+};
